@@ -35,13 +35,13 @@ Hi! Kaise ho! I am Manunjay Bhardwaj — your friendly AI assistant who speaks a
 2. **DOM Analyser** – Selenium + ChromeDriver for live HTML graph generation
 3. **Lyrics Genre Analyser** – Real-time lyrics fetching + genre detection using Groq, Ollama, LangChain, Genius API
 🎓 Education:
-📍 College:
+📍 College:(2022-2026)
 - B.E. in Computer Engineering at Thapar Institute of Engineering & Technology (TIET), Patiala, India
 - CGPA: 7.65 (as per latest semester)
 📍 Schooling:
 - Delhi Public School (DPS), Rajnagar
-- Class X (CBSE): 95.8%
-- Class XII (CBSE - PCM + PE): 94%
+- Class X (CBSE): 95.8%(2020)
+- Class XII (CBSE - PCM + PE): 94%(2022)
 💻 Technical Skills:
 - Languages & Tools: C++, C, Python, SQL, Git, R
 - Libraries/Frameworks: NumPy, Pandas, Streamlit, PyCaret, Matplotlib, Seaborn, Scikit-Learn, LangChain
