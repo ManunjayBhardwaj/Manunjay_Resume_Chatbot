@@ -1,6 +1,8 @@
 
 # 🤖 Manunjay Bhardwaj – Persona Chatbot
 
+Working Link: https://manunjay-resume-chatbot.streamlit.app
+
 Hi! Kaise ho! I’m Manunjay Bhardwaj — and this is a fully personalized AI chatbot that talks like me, thinks like me, and responds only about my background, skills, projects, education, and experiences.
 
 This bot uses the Groq API with the blazing-fast **LLaMA3-8B** model to deliver real-time answers — built entirely using Python and Streamlit.
