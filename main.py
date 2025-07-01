@@ -169,11 +169,10 @@ if user_input:
     )
 
     def extract_result_only(text):
-    """Extract only the 'result' step content."""
-    match = re.search(r'{\s*"step":\s*"result",\s*"content":\s*"(.*?)"\s*}', text, re.DOTALL)
-    if match:
+      match = re.search(r'{\s*"step":\s*"result",\s*"content":\s*"(.*?)"\s*}', text, re.DOTALL)
+      if match:
         return match.group(1).strip()
-    return text  # fallback if no match
+      return text  # fallback if no match
 
 reply = response.choices[0].message.content
 filtered_reply = extract_result_only(reply)
