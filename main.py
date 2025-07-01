@@ -1,6 +1,7 @@
 from openai import OpenAI
 import streamlit as st
 import os
+import re
 
 # Set up the OpenAI client with Groq API
 client = OpenAI(
@@ -154,28 +155,34 @@ for msg in st.session_state.messages[1:]:  # Skip system prompt
     with st.chat_message(msg["role"]):
         st.markdown(msg["content"])
 
+def extract_result_only(text):
+    """Extract only the 'result' step content from model output."""
+    match = re.search(r'{\s*"step":\s*"result",\s*"content":\s*"(.*?)"\s*}', text, re.DOTALL)
+    if match:
+        return match.group(1).strip()
+    return text  # fallback to original if not found
+
 # User input
-user_input = st.chat_input("Ask me something about Manunjay's skills,projects,work experience,etc....")
+user_input = st.chat_input("Ask me something about Manunjay's skills, projects, work experience, etc....")
 
 if user_input:
     # Show user message
     st.chat_message("user").markdown(user_input)
     st.session_state.messages.append({"role": "user", "content": user_input})
 
-    # Get model response
-    response = client.chat.completions.create(
-        model="gpt-4.1",
-        messages=st.session_state.messages
-    )
+    try:
+        # Call OpenAI API
+        response = client.chat.completions.create(
+            model="gpt-4.1",
+            messages=st.session_state.messages
+        )
+        full_reply = response.choices[0].message.content
+        final_reply = extract_result_only(full_reply)
 
-    def extract_result_only(text):
-      match = re.search(r'{\s*"step":\s*"result",\s*"content":\s*"(.*?)"\s*}', text, re.DOTALL)
-      if match:
-        return match.group(1).strip()
-      return text  # fallback if no match
+    except Exception as e:
+        final_reply = f"⚠️ OpenAI error: {str(e)}"
+        st.error(final_reply)
 
-reply = response.choices[0].message.content
-filtered_reply = extract_result_only(reply)
-
-st.session_state.messages.append({"role": "assistant", "content": filtered_reply})
-st.chat_message("assistant").markdown(filtered_reply)
+    # Save and show final reply
+    st.session_state.messages.append({"role": "assistant", "content": final_reply})
+    st.chat_message("assistant").markdown(final_reply)
