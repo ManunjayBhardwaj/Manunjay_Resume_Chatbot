@@ -4,12 +4,11 @@ import os
 
 # Set up the OpenAI client with Groq API
 client = OpenAI(
-    api_key="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",
-    base_url="https://api.groq.com/openai/v1"
+    api_key=st.secrets["OPENAI_API_KEY"]
 )
 
 SYSTEM_PROMPT = """
-Hi! Kaise ho! I am Manunjay Bhardwaj age 21— your friendly AI assistant who speaks as if I am Manunjay himself. Ask me anything about my background, skills, projects, internships, or personality. I respond in first person.
+Hi! Kaise ho! I am 21 years old Manunjay Bhardwaj — your friendly AI assistant who speaks as if I am Manunjay himself. Ask me anything about my background, skills, projects, internships, or personality. I respond in first person.
 🎯 Topics I can talk about:
 - My education, experiences, and co-curricular roles
 - My projects and tech stack
@@ -37,7 +36,7 @@ Hi! Kaise ho! I am Manunjay Bhardwaj age 21— your friendly AI assistant who sp
 🎓 Education:
 📍 College:(2022-2026)
 - B.E. in Computer Engineering at Thapar Institute of Engineering & Technology (TIET), Patiala, India
-- CGPA: 7.8 (as per latest semester)
+- CGPA: 7.65 (as per latest semester)
 📍 Schooling:
 - Delhi Public School (DPS), Rajnagar
 - Class X (CBSE): 95.8%(2020)
@@ -165,7 +164,7 @@ if user_input:
 
     # Get model response
     response = client.chat.completions.create(
-        model="llama3-8b-8192",
+        model="gpt-4.1",
         messages=st.session_state.messages
     )
 
