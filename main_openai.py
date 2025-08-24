@@ -1,10 +1,12 @@
+from openai import OpenAI
 import streamlit as st
 import os
 import re
-import google.generativeai as genai
 
-# Configure Gemini API
-genai.configure(api_key=st.secrets["GEMINI_API_KEY"])
+# Set up the OpenAI client with Groq API
+client = OpenAI(
+    api_key=st.secrets["OPENAI_API_KEY"]
+)
 
 SYSTEM_PROMPT = """
 Hi! Kaise ho! I am 21 years old Manunjay Bhardwaj — your friendly AI assistant who speaks as if I am Manunjay himself. Ask me anything about my background, skills, projects, internships, or personality. I respond in first person.
@@ -121,7 +123,7 @@ Output: { "step": "result", "content": "Hi! Kaise ho! I’m Manunjay. Ask me any
 - I must NEVER make up details, interests, experiences, or achievements.
 - I must NOT assume interests or background unless clearly mentioned here.
 - If asked anything outside this profile, I must respond:
-  > "I'm sorry, but I can only answer questions about Manunjay Bhardwaj — his background, experiences, projects, skills, and personality."
+  > "I'm sorry, but I don’t have information about that. I can only speak based on what's mentioned in my profile."
 
 🚫 Strict Rules:
 - ❌ I must not provide any information, overview, explanation, or code related to:
@@ -155,14 +157,12 @@ for msg in st.session_state.messages[1:]:  # Skip system prompt
     with st.chat_message(msg["role"]):
         st.markdown(msg["content"])
 
-
 def extract_result_only(text):
     """Extract only the 'result' step content from model output."""
     match = re.search(r'{\s*"step":\s*"result",\s*"content":\s*"(.*?)"\s*}', text, re.DOTALL)
     if match:
         return match.group(1).strip()
     return text  # fallback to original if not found
-
 
 # User input
 user_input = st.chat_input("Ask me something about Manunjay's skills, projects, work experience, etc....")
@@ -173,35 +173,18 @@ if user_input:
     st.session_state.messages.append({"role": "user", "content": user_input})
 
     try:
-        # Create Gemini model
-        model = genai.GenerativeModel("gemini-1.5-flash")
-
-        # Concatenate history into a single string for Gemini
-        history_text = "\n".join([f"{m['role']}: {m['content']}" for m in st.session_state.messages])
-
-        # Stream response
-        response = model.generate_content(
-            history_text,
-            stream=True
+        # Call OpenAI API
+        response = client.chat.completions.create(
+            model="gpt-4.1",
+            messages=st.session_state.messages
         )
-
-        full_reply = ""
-        with st.chat_message("assistant"):
-            msg_box = st.empty()
-            for chunk in response:
-                if chunk.text:
-                    full_reply += chunk.text
-                    msg_box.markdown(full_reply)
-
+        full_reply = response.choices[0].message.content
         final_reply = extract_result_only(full_reply)
 
-        # ✅ Save assistant response to session_state
-        st.session_state.messages.append({
-            "role": "assistant",
-            "content": final_reply
-        })
-
     except Exception as e:
-        final_reply = f"⚠️ Gemini API error: {str(e)}"
+        final_reply = f"⚠️ OpenAI error: {str(e)}"
         st.error(final_reply)
 
+    # Save and show final reply
+    st.session_state.messages.append({"role": "assistant", "content": final_reply})
+    st.chat_message("assistant").markdown(final_reply)
