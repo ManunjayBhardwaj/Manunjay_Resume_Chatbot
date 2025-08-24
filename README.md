@@ -3,84 +3,152 @@
 
 Working Link: https://manunjay-resume-chatbot.streamlit.app
 
-Hi! Kaise ho! I’m Manunjay Bhardwaj — and this is a fully personalized AI chatbot that talks like me, thinks like me, and responds only about my background, skills, projects, education, and experiences.
 
-This bot uses the Groq API with the blazing-fast **LLaMA3-8B** model to deliver real-time answers — built entirely using Python and Streamlit.
+This project is a **persona-based chatbot** built with **Streamlit** and **Gemini (google-generativeai)**.  
+It allows you to chat with a predefined persona and leverages the power of LLMs to provide contextual responses.
 
----
+## 🚀 Features
+- Streamlit frontend for chatbot UI.
+- Integration with Google Generative AI (Gemini).
+- Persona-based responses with customizable system prompt.
+- Easy deployment.
 
-## 🧠 Features
+## 📦 Installation
 
-- 💬 First-person responses — as if you're chatting with Manunjay himself  
-- ❌ Strictly rejects any non-personal questions (e.g., coding help, math, news, etc.)  
-- 🧱 Based on hardcoded system prompt containing verified resume data only  
-- 🔒 No hallucinations — responds only with facts present in the prompt  
-- ⚡ Powered by [Groq](https://groq.com) + OpenAI-compatible API with LLaMA3
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/yourusername/persona-chatbot.git
+   cd persona-chatbot
+   ```
 
----
+2. Create a virtual environment (recommended):
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate   # On Windows use .venv\Scripts\activate
+   ```
 
-## 🛠️ Tech Stack
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
 
-- Python
-- Streamlit
-- Groq API (OpenAI-compatible)
-- LLaMA3-8B model
-- dotenv for environment variables
+## ▶️ Running the App
 
----
-
-## 🚀 How to Run Locally
-
-1. **Clone the repository**  
 ```bash
-git clone https://github.com/ManunjayBhardwaj/persona-chatbot.git
-cd persona-chatbot
+streamlit run main.py
 ```
 
-2. **Install dependencies**  
+The app will start locally, and you can access it in your browser.
+
+## ⚙️ Environment Variables
+
+You need to set your **Gemini API key** before running the app:
+
 ```bash
-pip install -r requirements.txt
+export GOOGLE_API_KEY="your_api_key_here"
 ```
 
-3. **Set up your `.env` file**  
-Create a `.env` file with your Groq API key:
-```
-GROQ_API_KEY=your_groq_api_key_here
-```
+On Windows (PowerShell):
 
-4. **Run the app**  
-```bash
-streamlit run app.py
+```powershell
+$env:GOOGLE_API_KEY="your_api_key_here"
 ```
-
----
 
 ## 📁 Project Structure
 
 ```
-├── app.py              # Streamlit app
-├── .env                # Your API key (not committed)
-├── requirements.txt    # Python dependencies
-└── README.md           # Project documentation
+persona-chatbot/
+│── main.py              # Streamlit app entry point
+│── requirements.txt     # Dependencies
+│── README.md            # Documentation
+│── uv.lock / pyproject.toml (if using uv or poetry)
 ```
 
----
+## 🛠️ Dependencies
 
-## 🙋‍♂️ About Me
+- streamlit
+- openai
+- google-generativeai
 
-I'm Manunjay Bhardwaj — an aspiring AI/ML engineer, currently pursuing B.E. in Computer Engineering at TIET, Patiala.  
-You can reach out here:
+## ⚡ Notes
 
-- 📧 Email: manunjay09@gmail.com  
-- 🌐 Portfolio: [manunjaybhardwaj.netlify.app](https://manunjaybhardwaj.netlify.app/)  
-- 💼 LinkedIn: [linkedin.com/in/manunjaybhardwaj](https://linkedin.com/in/manunjaybhardwaj)  
-- 💻 GitHub: [github.com/ManunjayBhardwaj](https://github.com/ManunjayBhardwaj)  
-
----
-
-## ⚠️ Disclaimer
-
-This chatbot is limited to answering only questions about **Manunjay Bhardwaj**.  
-It will refuse any unrelated queries like code help, math problems, news, or general AI explanations.
+- If you are using **uv.lock** or **pyproject.toml**, Streamlit Cloud may try to prioritize them over `requirements.txt`.  
+  If installation fails, try removing `uv.lock` and rely only on `requirements.txt`.
 
 ---
+💡 Built with ❤️ using **Streamlit** and **Gemini API**.
+# Persona Chatbot
+
+This project is a **persona-based chatbot** built with **Streamlit** and **Gemini (google-generativeai)**.  
+It allows you to chat with a predefined persona and leverages the power of LLMs to provide contextual responses.
+
+## 🚀 Features
+- Streamlit frontend for chatbot UI.
+- Integration with Google Generative AI (Gemini).
+- Persona-based responses with customizable system prompt.
+- Easy deployment.
+
+## 📦 Installation
+
+1. Clone this repository:
+   ```bash
+   git clone https://github.com/yourusername/persona-chatbot.git
+   cd persona-chatbot
+   ```
+
+2. Create a virtual environment (recommended):
+   ```bash
+   python -m venv .venv
+   source .venv/bin/activate   # On Windows use .venv\Scripts\activate
+   ```
+
+3. Install dependencies:
+   ```bash
+   pip install -r requirements.txt
+   ```
+
+## ▶️ Running the App
+
+```bash
+streamlit run main.py
+```
+
+The app will start locally, and you can access it in your browser.
+
+## ⚙️ Environment Variables
+
+You need to set your **Gemini API key** before running the app:
+
+```bash
+export GOOGLE_API_KEY="your_api_key_here"
+```
+
+On Windows (PowerShell):
+
+```powershell
+$env:GOOGLE_API_KEY="your_api_key_here"
+```
+
+## 📁 Project Structure
+
+```
+persona-chatbot/
+│── main.py              # Streamlit app entry point
+│── requirements.txt     # Dependencies
+│── README.md            # Documentation
+│── uv.lock / pyproject.toml (if using uv or poetry)
+```
+
+## 🛠️ Dependencies
+
+- streamlit
+- openai
+- google-generativeai
+
+## ⚡ Notes
+
+- If you are using **uv.lock** or **pyproject.toml**, Streamlit Cloud may try to prioritize them over `requirements.txt`.  
+  If installation fails, try removing `uv.lock` and rely only on `requirements.txt`.
+
+---
+💡 Built with ❤️ using **Streamlit** and **Gemini API**.
