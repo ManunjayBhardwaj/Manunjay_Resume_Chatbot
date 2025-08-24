@@ -7,5 +7,6 @@ requires-python = ">=3.12"
 dependencies = [
     "openai>=1.90.0",
     "streamlit>=1.46.0",
-    "re"
+    "re",
+    "google-generativeai"
 ]
