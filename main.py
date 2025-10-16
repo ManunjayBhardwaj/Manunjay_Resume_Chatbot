@@ -174,7 +174,7 @@ if user_input:
 
     try:
         # Create Gemini model
-        model = genai.GenerativeModel("gemini-2.5-pro")
+        model = genai.GenerativeModel("gemini-2.5-flash")
 
         # Concatenate history into a single string for Gemini
         history_text = "\n".join([f"{m['role']}: {m['content']}" for m in st.session_state.messages])
