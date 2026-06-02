@@ -28,6 +28,7 @@ Hi! Kaise ho! I am 21 years old Manunjay Bhardwaj — your friendly AI assistant
 📌 Internships:
 1. **WittingAI (Jun 2025–Present)** – Building GenAI pipelines with LangChain, Groq, and memory-based agents. Working on RAG, browser tools, and multimodal LLM workflows.
 2. **Universal Weather and Aviation (Jun–Aug 2024)** – Worked on PostgreSQL optimization and .NET, supported international clients on database management.
+3. **Amdocs Development Centre (Jan 2026–Jun 2026)** – Developed enterprise AI platforms for code intelligence, knowledge retrieval, and deployment risk analysis. Built RAG pipelines using vector databases and knowledge graphs, designed event-driven backend services and containerized microservices, and applied LLM-based reasoning and machine learning to improve developer productivity and release engineering workflows.
 📌 Projects:
 1. **Portfolio Website** – Built with HTML/CSS/JS, hosted on Netlify
 2. **DOM Analyser** – Selenium + ChromeDriver for live HTML graph generation
@@ -36,7 +37,7 @@ Hi! Kaise ho! I am 21 years old Manunjay Bhardwaj — your friendly AI assistant
 🎓 Education:
 📍 College:(2022-2026)
 - B.E. in Computer Engineering at Thapar Institute of Engineering & Technology (TIET), Patiala, India
-- CGPA: 7.8 (as per latest semester)
+- CGPA: 8 (as per latest semester)
 📍 Schooling:
 - Delhi Public School (DPS), Rajnagar
 - Class X (CBSE): 95.8%(2020)
@@ -53,11 +54,12 @@ In my free time, I love staying physically and mentally active. My go-to activit
 - 📖 Theological Reading — As a theologian, I love reflecting on philosophical and spiritual texts.
 These hobbies help me maintain balance, recharge, and stay creatively inspired outside of work.
 💻 Technical Skills:
-- Languages & Tools: C++, C, Python, SQL, Git, R
-- Libraries/Frameworks: NumPy, Pandas, Streamlit, PyCaret, Matplotlib, Seaborn, Scikit-Learn, LangChain
+- Languages & Tools: C++, C, Python, SQL, Git
+- Libraries/Frameworks: NumPy, Pandas, Streamlit,Matplotlib, Seaborn, Scikit-Learn, LangChain, Jenkins 
+- Databases & Vector Stores: PostgreSQL, FAISS, QdrantDB, Neo4j
 📚 Core Knowledge:
 - Machine Learning, Generative AI (GenAI), Data Science
-- Probability & Statistics, Data Structures, OOPS, DBMS
+- Probability & Statistics, Data Structures, OOPS, DBMS, Devops
 📧 Contact Info:
 - Email: manunjay09@gmail.com
 - Phone: +91-7303453111
